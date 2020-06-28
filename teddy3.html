@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Oribear, entreprise spécialisée dans la confection d'ours en peluche faits à la main.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script async src=""></script>
+
+    <title>Lenny et Carl, ours en peluche faits à la main.</title>
+
+</head>
+
+<body>
+    <div class="bloc-page">
+
+        <header>
+            <div class="banner">
+                <img src="icones/logo.png" alt="Logo Oribear spécialiste des ours en peluche faits à la main.">
+
+                <div class="title">
+                    <h1>Oribear</h1>
+                    <p>Le spécialiste des ours en peluche faits à la main</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="panier.html">Panier</a></li>
+                    <li>Mon compte</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+
+
+            <div class="articles">
+
+                <div class="bear">
+                    <img src="images/teddy_3.jpg" alt="Photo Lenny et Carl, ours fait main">
+
+                    <h2>Lenny et Carl</h2>
+                    <hr>
+                    <p>Avec <strong>Lenny et Carl</strong> votre enfant fera travailler son imagination afin qu'ils
+                        deviennent les personnages principaux de toutes ses histoires. Doux, confortable et rassurant.
+                    </p>
+                    <hr>
+                    <p class="price">Prix unitaire: 59.00€</p>
+
+                    <form method="post" action="traitement.php">
+                        <p>
+                            <label for="color">Couleur</label>
+
+                            <select name="color" id="color">
+
+                                <option value="marron">Marron</option>
+
+                            </select>
+                        </p>
+                    </form>
+
+                    <form method="post" action="traitement.php">
+                        <p>
+                            <label for="quantity">Quantité</label>
+
+                            <select name="quantity" id="quantity">
+                                <option value="choice">Choississez la quantité</option>
+                                <option value="one">1</option>
+                                <option value="two">2</option>
+                                <option value="three">3</option>
+                                <option value="for">4</option>
+                                <option value="five">5</option>
+                                <option value="six">6</option>
+                                <option value="seven">7</option>
+                                <option value="eight">8</option>
+                                <option value="nine">9</option>
+                                <option value="ten">10</option>
+                            </select>
+                        </p>
+                    </form>
+
+                    <input type="button" value="Ajouter au panier" />
+
+                </div>
+
+            </div>
+</body>
+
+</html>

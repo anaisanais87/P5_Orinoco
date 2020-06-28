@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Oribear, entreprise spécialisée dans la confection d'ours en peluche faits à la main.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script async src=""></script>
+
+    <title>Panier Oribear.</title>
+
+</head>
+
+<body>
+    <div class="bloc-page">
+
+        <header>
+            <div class="banner">
+                <img src="icones/logo.png" alt="Logo Oribear spécialiste des ours en peluche faits à la main.">
+
+                <div class="title">
+                    <h1>Oribear</h1>
+                    <p>Le spécialiste des ours en peluche faits à la main</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="panier.html">Panier</a></li>
+                    <li>Mon compte</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Formulaire de commande</h2>
+
+            <h3>Vos coordonnées</h3>
+
+            <form method="post" action="traitement.php">
+                <p>
+                    <label for="name">Nom<span class="required">*</span></span></label> : <input type="text" name="name" id="name" placeholder="Votre Nom" required/>
+                </p>
+                <p>
+                    <label for="first-name">Prénom<span class="required">*</span></span></label> : <input type="text" name="first-name" id="first-name" placeholder="Votre Prénom" required/>
+                </p>
+                <p>
+                    <label for="mail">Mail<span class="required">*</span></span></label> : <input type="email" name="mail" id="mail" placeholder="Votre Mail" required/>
+                </p>
+                <p>
+                    <label for="tel">Téléphone<span class="required">*</span></span></label> : <input type="tel" name="tel" id="tel" placeholder="Votre Numéro" required/>
+                </p>
+
+                <h3>Adresse de facturation</h3>
+
+                <p>
+                    <label for="adress">Adresse<span class="required">*</span></span></label> : <input type="text" name="adress" id="adress" placeholder="Votre Adresse" required/>
+                </p>
+            </form>
+
+        </section>
+
+
+
+</body>
+
+</html>
