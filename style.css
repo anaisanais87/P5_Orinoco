@@ -102,6 +102,16 @@ ul a:hover {
 
 nav {
   background: url("images/separateur.png") repeat-x bottom;
+  margin-top: 3%;
+}
+
+.icone_basket {
+  text-align: right;
+}
+.icone_basket img {
+  height: 50px;
+  width: 50px;
+  margin-right: 2%;
 }
 
 /*Menu déroulant burger*/
@@ -109,8 +119,8 @@ nav {
   height: 30px;
   width: 30px;
   position: relative;
-  float: right;
-  margin-right: 20px;
+  float: left;
+  margin-left: 20px;
   margin-top: 8px;
   cursor: pointer;
 }
@@ -145,7 +155,7 @@ nav {
 }
 
 .menu {
-  height: 50px;
+  height: 20px;
   background-color: #F3E9F1;
   width: 200px;
 }
@@ -228,6 +238,11 @@ nav {
 }
 
 /*footer*/
+.network {
+  text-align: center;
+  padding-top: 5%;
+}
+
 footer {
   background: url("images/separateur.png") repeat-x top;
   background-color: #F3E9F1;
@@ -235,9 +250,10 @@ footer {
 footer h2 {
   text-align: center;
   margin-bottom: 0;
-  padding-top: 5%;
+  padding-top: 0;
   text-transform: uppercase;
   font-size: 16px;
+  margin-top: 1%;
 }
 
 footer hr {
@@ -449,6 +465,14 @@ input[type=submit i] {
   .title p {
     font-size: 16px;
   }
+
+  .network {
+    padding-top: 3%;
+  }
+
+  footer h2 {
+    margin-top: 0%;
+  }
 }
 @media screen and (min-width: 550px) {
   /*header*/
@@ -554,6 +578,14 @@ input[type=submit i] {
     margin-left: 40%;
   }
 
+  .network {
+    padding-top: 2%;
+  }
+
+  footer h2 {
+    margin-top: 0;
+  }
+
   /*Pages produits*/
   button a {
     font-size: 16px;
@@ -626,9 +658,13 @@ input[type=submit i] {
     margin: 5% 22% 3% 20%;
   }
 
+  .network {
+    padding-top: 1.5%;
+  }
+
   footer h2 {
     font-size: 20px;
-    padding-top: 2%;
+    padding-top: 0;
   }
 
   footer ul {
@@ -647,6 +683,10 @@ input[type=submit i] {
   .pay img {
     height: 40px;
     width: 60px;
+  }
+
+  input[type=submit i] {
+    padding-bottom: 1%;
   }
 }
 
