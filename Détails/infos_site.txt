@@ -49,3 +49,10 @@ Description: Facile à saisir pour les petites mains, cet ourson séduira vos en
 	     grâce à son poil soyeux et son corps tout moelleux. 
 	     
 
+Récapitulatif panier:
+N° commande
+Date
+Produit
+Quantité
+Montant TTC 
+Statut

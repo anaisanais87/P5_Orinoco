@@ -109,9 +109,10 @@ nav {
   text-align: right;
 }
 .icone_basket img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   margin-right: 2%;
+  margin-top: 5%;
 }
 
 /*Menu déroulant burger*/
@@ -155,9 +156,10 @@ nav {
 }
 
 .menu {
-  height: 20px;
+  height: 30px;
   background-color: #F3E9F1;
   width: 200px;
+  margin-bottom: 2%;
 }
 
 .menu a {
@@ -466,6 +468,12 @@ input[type=submit i] {
     font-size: 16px;
   }
 
+  .icone_basket img {
+    margin-top: 3%;
+    height: 40px;
+    width: 40px;
+  }
+
   .network {
     padding-top: 3%;
   }
@@ -553,6 +561,10 @@ input[type=submit i] {
     font-size: 20px;
   }
 
+  .icone_basket img {
+    margin-top: 2%;
+  }
+
   /*section*/
   .teddies {
     width: 600px;
@@ -630,6 +642,10 @@ input[type=submit i] {
 
   .title p {
     font-size: 22px;
+  }
+
+  .icone_basket img {
+    margin-top: 1%;
   }
 
   /*section*/
