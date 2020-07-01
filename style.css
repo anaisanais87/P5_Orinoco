@@ -111,7 +111,7 @@ nav {
 .icone_basket img {
   height: 30px;
   width: 30px;
-  margin-right: 2%;
+  margin-right: 5%;
   margin-top: 5%;
 }
 
@@ -507,6 +507,10 @@ input[type=submit i] {
 
   .firstmenu {
     padding-top: 10%;
+  }
+
+  .icone_basket img {
+    margin-right: 2%;
   }
 
   /*section*/
