@@ -31,20 +31,20 @@ function fillProducts(data) {
         p.textContent = priceTeddies / 100 + ".00 €";
         div.appendChild(p);
 
-        createButton(div)
-    }
-}
-
-function createButton(conteneur) {
-    let seeMore = document.createElement("button");
+        let seeMore = document.createElement("button");
         seeMore.className = "see_more";
         seeMore.textContent = "Voir plus";
-        conteneur.appendChild(seeMore);
+        div.appendChild(seeMore);
 
         seeMore.addEventListener("click", function (recupId) {
             let id = idTeddies
             document.location.href = "produits.html?id=" + idTeddies
         })
+    }
+}
+
+function createButton(conteneur) {
+    
 }
 
 const url = "http://localhost:3000/api/teddies";
