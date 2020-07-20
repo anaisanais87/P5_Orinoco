@@ -1,6 +1,11 @@
 // Ajout des données sur la page des produits
-const paramUrl = new URLSearchParams(window.location.search)
-let idTeddy = paramUrl.get("id")
+
+const paramUrl = new URLSearchParams(window.location.search);
+let idTeddy = paramUrl.get("id");                               // Je stocke dans une variable l'id du produit sélectionné
+
+let cart = [];
+let currentColor = "";
+let currentQuantity = 1;
 
 function displayPrice(prix, conteneur) {
     let p = document.createElement("p");
@@ -33,7 +38,7 @@ function createColorList(couleur) {
 }
 
 function selectQuantity(conteneur) {
-    
+
     let form = document.createElement("form");
     form.id = "number"
     conteneur.appendChild(form);
@@ -53,17 +58,17 @@ function createQuantityList(quantité) {
         let option = document.createElement("option");
         option.textContent = i + 1;
         document.getElementById("quantity").appendChild(option);
-    }  
+    }
 }
 
 function fillProductPage(data) {
 
-    let idBear = data.id;
-    let imgBear = data.imageUrl;
-    let nameBear = data.name;
-    let priceBear = data.price;
-    let infosBear = data.description;
-    let colorsBear = data.colors;
+    const idBear     = data.id;
+    const imgBear    = data.imageUrl;
+    const nameBear   = data.name;
+    const priceBear  = data.price;
+    const infosBear  = data.description;
+    const colorsBear = data.colors;
 
     let div = document.createElement("div");
     div.className = "bear";
@@ -78,7 +83,7 @@ function fillProductPage(data) {
     div.appendChild(h2);
 
     div.appendChild(document.createElement("hr"));
-    
+
     let p2 = document.createElement("p");
     p2.textContent = infosBear;
     div.appendChild(p2);
@@ -95,65 +100,70 @@ function fillProductPage(data) {
 
     createQuantityList()
 
-    let addBasket = document.createElement("button");
-    addBasket.id = "add_basket";
-    addBasket.textContent = "Ajouter au panier";
-    div.appendChild(addBasket);
-}
+    var addToCart = document.createElement("button");
+    addToCart.addEventListener("click", addToBasket);                     // crea evnt click btn 
 
-fetch("http://localhost:3000/api/teddies/" + idTeddy)
+    function addToBasket() {
 
-    .then(response => response.json())
+        var sel = document.getElementById("color");
+        var sel2 = document.getElementById("quantity");
+        currentColor = sel.options[sel.selectedIndex].innerHTML;
+        currentQuantity = sel2.options[sel2.selectedIndex].innerHTML;
 
-    .then(function (data) {
+        //Json parse pour pouvoir plus facilement travailler avec ce qu'on reçoit du localStorage
+        let cart = JSON.parse(localStorage.getItem('cart'));
 
-        fillProductPage(data)
-    })
+        //on créer un objet qu'on va stocker ds le localStorage avec les infos donnés par l'utilisateur recuperer juste au dessus
 
-    // addBasket.addEventListener("click", function (add) {
+        let newCart = {
+            'id': idBear,
+            'color': currentColor,
+            'quantity': currentQuantity,
+            'price': priceBear,
+            'img': imgBear,
+            'name': nameBear,
+        };
 
-        //     function LignePanier(code, qte, prix) {
-        //         this.codeArticle = idBear;
-        //         this.qteArticle = qte;
-        //         this.prixArticle = priceBear;
-        //         this.ajouterQte = function (qte) {
-        //             this.qteArticle += qte;
-        //         }
-        //         this.getPrixLigne = function () {
-        //             var resultat = this.prixArticle * this.qteArticle;
-        //             return resultat;
-        //         }
-        //         this.getCode = function () {
-        //             return this.codeArticle;
-        //         }
-        //     }
+        alert("Article ajouté à votre panier !")
+        
+        // si encore rien ds le panier, le panier est vide donc null, si il est null il faut creer un tableau vide
+        if (cart === null) {
+            cart = [];
+        }
+        //on ajoute dans le cart l'objet qui porte les infos utiles 
+        cart.push(newCart);
 
+        // on écrase l'ancienne valeur du panier, mais comme on l'a recupérer avt et qu'avec push on ajoute qqch sans ecraser les valeurs deja presente, on ne perds pas d'info
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // window.location.href = ".html";
+        }
 
-        //     function Panier() {
-        //         this.liste = [];
-        //         this.ajouterArticle = function (code, qte, prix) {
-        //             var index = this.getArticle(code);
-        //             if (index == -1) this.liste.push(new LignePanier(code, qte, prix));
-        //             else this.liste[index].ajouterQte(qte);
-        //         }
-        //         this.getPrixPanier = function () {
-        //             var total = 0;
-        //             for (var i = 0; i < this.liste.length; i++)
-        //                 total += this.liste[i].getPrixLigne();
-        //             return total;
-        //         }
-        //         this.getArticle = function (code) {
-        //             for (var i = 0; i < this.liste.length; i++)
-        //                 if (code == this.liste[i].getCode()) return i;
-        //             return -1;
-        //         }
-        //         this.supprimerArticle = function (code) {
-        //             var index = this.getArticle(code);
-        //             if (index > -1) this.liste.splice(index, 1);
-        //         }
-        //     }
+        // addToCart.addEventListener("click", function (event) {
+        //     var sel = document.getElementById("color");
+        //     var sel2 = document.getElementById("quantity");
+        //     currentColor = sel.options[sel.selectedIndex].innerHTML;
+        //     currentQuantity = sel2.options[sel2.selectedIndex].innerHTML;
 
+        //     cart = [...cart, {
+        //         name: data.name,
+        //         price: data.price,
+        //         color: currentColor,
+        //         quantity: currentQuantity
+        //     }];
+
+        //     localStorage.setItem("cart", JSON.stringify(cart))
 
         // })
+        addToCart.id = "add_cart";
+        addToCart.textContent = "Ajouter au panier";
+        div.appendChild(addToCart);
+    }
 
+    fetch("http://localhost:3000/api/teddies/" + idTeddy)
 
+        .then(response => response.json())
+
+        .then(function (data) {
+
+            fillProductPage(data)
+        })

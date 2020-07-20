@@ -127,7 +127,7 @@
         margin-top: 3%;
     }
 
-    .icone_basket{
+    .icone_cart{
         
         text-align: right;
 
@@ -138,9 +138,6 @@
             margin-top: 5%;
         }
     }
-
-
-
 
     /*section*/
 
@@ -211,7 +208,6 @@
             font-size: 16px;
             margin-top: 1%;
         }
-        
     }
 
     footer hr{
@@ -246,7 +242,7 @@
         border-radius: 5px;
         background-color:$back-button;
         font-size: 15px;
-        margin-top: 4%;
+        margin-top: 2%;
         margin-bottom: 0;
         padding: 0.25rem 1rem 0.4rem 1rem;
 
@@ -270,7 +266,6 @@
             height: 160px;
             margin: 7% 4% 5% 7%;
             border-radius: 10px;
-
         }
     }
 
@@ -284,12 +279,10 @@
         width: 120px;
         height: 0.75px;
         background-color: $back-button;
-
     }
 
     .bear p{
         text-align: center;
-        margin-top: 4%;
         padding-left: 4%;
         padding-right: 4%;
     }
@@ -299,7 +292,7 @@
         font-size: 18px;
     }
 
-    #add_basket{
+    #add_cart{
         margin: auto;
         display: block;
         border-radius: 5px;
@@ -329,25 +322,111 @@
         font-weight: bold;
     }
     /*Panier*/
+    .recap{
+        padding-left: 6%;
+        padding-right: 6%;
+        width:auto;
+        
+        h2{
+            text-align: center;
+            margin-top: 5%;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: $back-button;
+            text-decoration: underline;
+            margin-bottom: 2%;
+        }
+    }
+
+    #order{
+        display: none;
+    }
+
+    #cart{
+        margin-bottom: 6%;
+    }
+    
+    #cart_array{
+        background-color: $back-1;
+        box-shadow: 1px 1px 10px 1px #BDBDBD;
+        border-radius: 10px;
+        // padding-bottom: 1%;
+    }
+
+    #array{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: ridge $back;
+
+        td{
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+
+    .img_array{
+        width: 80px;
+    }
+    .name_array{
+        width: 80px;
+    }
+
+    .color_array{
+        width: 80px;
+    }
+    #array img{
+        width: 100px;
+        height: 70px;
+        margin: 1% 1% 1% 1%;
+        border-radius: 10px;
+    }
+
+    #clear_cart{
+        margin: auto;
+        display: block;
+        margin-top: 3%;
+        border-radius: 5px;
+        color: $back;
+        background-color:$back-button;
+        font-size: 16px;
+    }
+
+    #cart_empty{
+        background-color:$back-1;
+        box-shadow: 1px 1px 10px 1px #BDBDBD;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        padding-top: 3%;
+        padding-bottom: 3%;
+
+    }
+
+    #price_total{
+        display: block;
+        text-align: right;
+        color: $back-button;
+        font-size: 20px;
+        border: ridge $back;
+        padding-right: 3%;
+        margin-top: 1%;
+        font-weight: bold;
+    }
+
     .required{
         color: red;
     }
 
-    table
-    {
-        border-collapse: collapse;
-    }
-
-    td, th 
-    {
-        border: 1px solid black;
-    }
-
     .infos{
-        border:1px solid ;
         margin-bottom: 6%;
         padding-top: 2%;
         padding-bottom: 4%;
+        background-color: $back-1;
+        box-shadow: 1px 1px 10px 1px #BDBDBD;
+        border-radius: 10px;
 
         p{
         padding-left: 6%;   
@@ -355,10 +434,12 @@
     }
 
     .adress{
-        border:1px solid;
         margin-bottom: 3%;
         padding-top: 2%;
         padding-bottom: 4%;
+        background-color: $back-1;
+        box-shadow: 1px 1px 10px 1px #BDBDBD;
+        border-radius: 10px;
 
         p{
         padding-left: 6%;
@@ -377,32 +458,6 @@
         margin-bottom: 3%;
     }
 
-    .recap{
-        padding-left: 6%;
-        padding-right: 6%;
-        width:auto;
-        
-        h2{
-            text-align: center;
-            margin-top: 5%;
-            text-transform: uppercase;
-            font-size: 18px;
-            color: $back-button;
-        }
-    }
-
-    .recap h3{
-        text-decoration: underline;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 16px;
-    }
-
-    .basket{
-        border:1px solid ;
-        margin-bottom: 6%;
-    }
-
     .form{
         padding-left: 6%;
         padding-right: 6%;
@@ -412,8 +467,10 @@
             text-align: center;
             margin-top: 5%;
             text-transform: uppercase;
-            font-size: 18px;
+            font-size: 20px;
             color: $back-button;
+            text-decoration: underline;
+            margin-bottom: 2%;
         }
     }
 
@@ -421,7 +478,7 @@
         text-decoration: underline;
         text-align: center;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 18px;
     }
 
 
@@ -453,7 +510,7 @@
             font-size: 16px;
         }
 
-        .icone_basket img{
+        .icone_cart img{
             margin-top: 3%;
             height: 40px;
             width: 40px;
@@ -577,7 +634,7 @@
             font-size: 18px;
         }
 
-        ul{
+        header ul{
             display: flex;
             justify-content: space-around;
             margin-right: 10%;
@@ -597,7 +654,7 @@
             display: none;
         }
 
-        .icone_basket img{
+        .icone_cart img{
             margin-right: 2%;
         }
 
@@ -613,7 +670,7 @@
         }
 
         .teddies h2{
-            margin-top: -30%;
+            margin-top: -34%;
             margin-left: 55%;
         }
 
@@ -634,7 +691,7 @@
         /*Pages produits*/
 
         button{
-            margin-top: 1%;
+            margin-top: 2%;
         }
 
         .bear{
@@ -647,8 +704,67 @@
             }
         }
 
-        #add_basket{
+        #add_cart{
             margin-top: 5.5%;
+        }
+
+        // Panier
+        #array{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            vertical-align: middle;
+            margin-left: 1%;
+            margin-right: 4%;
+        }
+
+        #array td{
+            font-size: 16px;
+        }
+
+        #array img{
+            width: 160px;
+            height: 110px;
+            margin: 1% 1% 1% 1%;
+            border-radius: 10px;
+        }
+
+        #order{
+            display: flex;
+            justify-content: space-between;
+            background-color: $back;
+            box-shadow: 1px 1px 10px 1px #BDBDBD;
+            border-radius: 10px;
+            color: $back-button;
+            font-size: 16px;
+            font-weight: bold;
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+
+        #article_cart{
+            width: 600px;
+        }
+    
+        #name_cart{
+            width: 320px;         
+        }
+    
+        #color_cart{
+            width: 180px;
+        }
+    
+        #price_cart{
+            width: 130px;
+        }
+    
+        #quantity_cart{
+            width: 100px;
+        }
+    
+        #price_total_cart{
+            width: 130px;
         }
 
     }
@@ -676,7 +792,7 @@
             margin-right: 12%;
         }
 
-        .icone_basket img{
+        .icone_cart img{
             margin-top: 2%;
             margin-bottom: 2%;
         }
@@ -693,7 +809,7 @@
         }
 
         .teddies h2{
-            margin-top: -25%;
+            margin-top: -28%;
             margin-left: 40%;
         }
 
@@ -734,7 +850,7 @@
             height: 300px;
             margin: 5% 10% 3% 12.5%;
             border-radius: 10px;
-
+        }
         }
 
         label{
@@ -754,12 +870,61 @@
             font-size: 17px;
             border-radius: 5px;
         }
-
-        /*footer*/
-
+        
+        // Panier
+        #array td{
+            font-size: 18px;
         }
 
+        #order{
+            font-size: 18px;
+        }
+
+        #array img{
+            width: 230px;
+            height: 160px;
+            margin: 1% 1% 1% 1%;
+            border-radius: 10px;
+        }
+
+        .img_array{
+            width: 160px;
+        }
+        .name_array{
+            width: 140px;
+        }
+    
+        .color_array{
+            width: 120px;
+        }
+
+        #article_cart{
+            width: 340px;
+        }
+    
+        #name_cart{
+            width: 280px;         
+        }
+    
+        #color_cart{
+            width: 150px;
+        }
+    
+        #price_cart{
+            width: 110px;
+        }
+    
+        #quantity_cart{
+            width: 80px;
+        }
+    
+        #price_total_cart{
+            width: 100px;
+        }
+
+
     }
+
     @media screen and (min-width: 1000px){
         /*header*/
         
@@ -780,7 +945,7 @@
             margin-right: 13%;
         }
 
-        .icone_basket img{
+        .icone_cart img{
             margin-top: 1%;
         }
 
@@ -796,8 +961,8 @@
         }
 
         .teddies h2{
-            margin-top: -20%;
-            margin-left: 40%;
+            margin-top: -22.5%;
+            margin-left: 38.5%;
         }
 
         .see_more{
@@ -853,5 +1018,29 @@
             padding-bottom: 1%;
         }
 
-        
+        //Panier
+        #article_cart{
+            width: 320px;
+        }
+    
+        #name_cart{
+            width: 320px;         
+        }
+    
+        #color_cart{
+            width: 180px;
+        }
+    
+        #price_cart{
+            width: 130px;
+        }
+    
+        #quantity_cart{
+            width: 100px;
+        }
+    
+        #price_total_cart{
+            width: 130px;
+        }
+
     }

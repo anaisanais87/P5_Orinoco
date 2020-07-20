@@ -32,7 +32,7 @@
                     <span></span>
                 </div>
 
-                <div class="icone_basket">
+                <div class="icone_cart">
                     <a href="panier.html"><img src="icones/bag.png" alt="icone panier commande"></a>
                 </div>
 
@@ -55,27 +55,17 @@
             <div class="recap">
                 <h2>Récapitulatif de votre commande</h2>
 
-                <div class="basket">
-                    <h3>Votre Panier</h3>
+                <div id="cart">
 
-                    <table>
-                        <tr>
-                            <th>Articles</th>
-                            <th>Quantité</th>
-                            <th>Prix TTC</th>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                 <table id="order">
+                       
+                            <th id="article_cart">Produit</th>
+                            <th id="name_cart">Nom</th>
+                            <th id="color_cart">Couleur</th>
+                            <th id="price_cart">Prix.U</th>
+                            <th id="quantity_cart">Quantité</th>
+                            <th id="price_total_cart">Prix Total</th>
+                 </table>
 
                 </div>
 
@@ -159,7 +149,8 @@
             <p>Copyright 2020 &#xA9; ORIBEAR</p>
 
         </footer>
-        <script type="text/javascript" src="js/app.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/cart.js"></script>
 </body>
 
 </html>
