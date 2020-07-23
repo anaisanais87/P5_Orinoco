@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="icone_cart">
-                    <a href="panier.html"><img src="icones/bag.png" alt="icone panier commande"></a>
+                    <a href="panier.html"><img src="icones/bag.svg" alt="icone panier commande" id="cart_svg"></a>
                 </div>
 
                 <div class="menu nav">
@@ -65,44 +65,38 @@
                 <h2>Formulaire de commande</h2>
 
                 <div class="infos">
-                    <h3>Vos coordonnées</h3>
 
-                    <form method="post" action="traitement.php">
+                    <form id="my_form" method="post" action="traitement.php">
+
                         <p>
-                            <label for="name">Nom<span class="required">*</span></label> : <br><input type="text"
-                                name="name" id="name" placeholder="Votre Nom" required />
+                            <label for="name">Nom<span class="required">*</span></label> : <br>
+                            <input type="text" name="name" id="name" placeholder=" Votre Nom" required />
+                            <span id='error_name'></span>
                         </p>
                         <p>
-                            <label for="first-name">Prénom<span class="required">*</span></label> : <br><input
-                                type="text" name="first-name" id="first-name" placeholder="Votre Prénom" required />
+                            <label for="firstName">Prénom<span class="required">*</span></label> : <br>
+                            <input type="text" name="firstName" id="firstName" placeholder=" Votre Prénom" required />
+                            <span id='error_firstName'></span>
                         </p>
                         <p>
-                            <label for="mail">Mail<span class="required">*</span></label> : <br><input type="email"
-                                name="mail" id="mail" placeholder="Votre Mail" required />
+                            <label for="mail">Mail<span class="required">*</span></label> : <br>
+                            <input type="email" name="mail" id="mail" placeholder=" Votre Mail" required />
+                            <span id='error_mail'></span>
                         </p>
+
                         <p>
-                            <label for="tel">Téléphone<span class="required">*</span></label> : <br><input type="tel"
-                                name="tel" id="tel" placeholder="Votre Numéro" required />
+                            <label for="address">Adresse<span class="required">*</span></label> : <br>
+                            <input type="text" name="address" id="address" placeholder=" Votre Adresse" required />
+                            <span id='error_address'></span>
                         </p>
-                </div>
 
-                <div class="adress">
-
-                    <h3>Adresse de facturation</h3>
-
-                    <p>
-                        <label for="adress">Adresse<span class="required">*</span></label> : <br><input type="text"
-                            name="adress" id="adress" placeholder="Votre Adresse" required />
-                    </p>
-                    <p>
-                        <label for="adress">Code Postal<span class="required">*</span></label> : <br><input
-                            type="number" name="adress" id="adress" placeholder="Votre Code Postal" required />
-                    </p>
-                    <p>
-                        <label for="adress">Ville<span class="required">*</span></label> : <br><input type="text"
-                            name="adress" id="adress" placeholder="Votre Ville" required />
-                    </p>
+                        <p>
+                            <label for="city">Ville<span class="required">*</span></label> : <br>
+                            <input type="text" name="city" id="city" placeholder=" Votre Ville" required />
+                            <span id='error_city'></span>
+                        </p>
                     </form>
+
                 </div>
 
             </div>
@@ -113,10 +107,10 @@
 
             <div class="network">
                 <a href="https://www.facebook.com/" target="blanck"><img src="icones/fb.png" alt="logo Facebook"
-                        width="50" height="50"></a>
+                        width="50" height="50" id="icone_fb"></a>
                 <a href="https://www.instagram.com/" target="blanck"><img src="icones/insta.png" alt="logo Paypal"
-                        width="50" height="50"></a>
-                <a href="#" target="blanck"><img src="icones/mail.png" alt="logo Mastercard" width="50" height="50"></a>
+                        width="50" height="50" id="icone_insta"></a>
+                <a href="#" target="blanck"><img src="icones/mail.png" alt="logo Mastercard" width="50" height="50" id="icone_mail"></a>
             </div>
 
             <h2>Informations</h2>

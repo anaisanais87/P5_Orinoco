@@ -98,6 +98,7 @@ ul li {
 ul a:hover {
   text-decoration: underline #B36E99;
   color: #B36E99;
+  opacity: 0.7;
 }
 
 nav {
@@ -108,11 +109,16 @@ nav {
 .icone_cart {
   text-align: right;
 }
-.icone_cart img {
+
+#cart_svg {
   height: 30px;
   width: 30px;
   margin-right: 5%;
   margin-top: 5%;
+}
+
+#cart_svg:hover {
+  opacity: 0.7;
 }
 
 /*section*/
@@ -156,16 +162,32 @@ nav {
   margin: auto;
   display: block;
   margin-top: 3%;
-  border-radius: 5px;
+  border-radius: 25px;
   color: #F3E9F1;
   background-color: #B36E99;
   font-size: 16px;
+  border: 0.5px solid #757575;
 }
 
 /*footer*/
 .network {
   text-align: center;
   padding-top: 5%;
+}
+
+#icone_fb:hover {
+  transform: scale(1.2);
+  transition-duration: 400ms;
+}
+
+#icone_insta:hover {
+  transform: scale(1.2);
+  transition-duration: 400ms;
+}
+
+#icone_mail:hover {
+  transform: scale(1.2);
+  transition-duration: 400ms;
 }
 
 footer {
@@ -199,6 +221,8 @@ footer p {
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 5%;
+  color: #B36E99;
+  font-weight: bold;
 }
 
 .pay {
@@ -209,15 +233,20 @@ footer p {
 /*Pages produits*/
 button {
   margin-left: 6%;
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: #B36E99;
   font-size: 15px;
   margin-top: 2%;
   margin-bottom: 0;
   padding: 0.25rem 1rem 0.4rem 1rem;
+  border: 0.5px solid #757575;
 }
 button a {
   color: #F3E9F1;
+}
+button:hover {
+  transform: scale(1.15);
+  transition-duration: 400ms;
 }
 
 .bear {
@@ -263,11 +292,13 @@ hr {
 #add_cart {
   margin: auto;
   display: block;
-  border-radius: 5px;
+  border-radius: 25px;
   color: #F3E9F1;
   background-color: #B36E99;
   font-size: 20px;
   margin-top: 8%;
+  padding: 0.25rem 1rem 0.4rem 1rem;
+  border: 0.5px solid #757575;
 }
 
 #perso {
@@ -298,7 +329,7 @@ label {
 }
 .recap h2 {
   text-align: center;
-  margin-top: 5%;
+  margin-top: 2%;
   text-transform: uppercase;
   font-size: 20px;
   color: #B36E99;
@@ -323,8 +354,11 @@ label {
 #array {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   border-bottom: ridge #F3E9F1;
+  border-top: ridge #F3E9F1;
+  width: auto;
 }
 #array td {
   font-size: 18px;
@@ -355,10 +389,11 @@ label {
   margin: auto;
   display: block;
   margin-top: 3%;
-  border-radius: 5px;
+  border-radius: 25px;
   color: #F3E9F1;
   background-color: #B36E99;
   font-size: 16px;
+  border: 0.5px solid #757575;
 }
 
 #cart_empty {
@@ -374,11 +409,10 @@ label {
 
 #price_total {
   display: block;
-  text-align: right;
+  text-align: center;
   color: #B36E99;
   font-size: 20px;
-  border: ridge #F3E9F1;
-  padding-right: 3%;
+  padding-right: 4.5%;
   margin-top: 1%;
   font-weight: bold;
 }
@@ -414,12 +448,18 @@ label {
 #valid_order {
   margin: auto;
   display: block;
-  border-radius: 5px;
+  border-radius: 25px;
   color: #F3E9F1;
   background-color: #B36E99;
+  border: 0.5px solid #757575;
   font-size: 20px;
-  margin-top: 0;
+  margin-top: -2%;
   margin-bottom: 3%;
+  padding: 0.25rem 1rem 0.4rem 1rem;
+}
+#valid_order:hover {
+  transform: scale(1.15);
+  transition-duration: 400ms;
 }
 
 #form {
@@ -444,6 +484,11 @@ label {
   font-size: 18px;
 }
 
+input {
+  border-radius: 10px;
+  border: 0.5px solid;
+}
+
 #confirm h2 {
   text-align: center;
   font-size: 26px;
@@ -463,6 +508,8 @@ label {
   color: #F3E9F1;
   font-size: 16px;
   margin-bottom: 2%;
+  padding: 0.25rem 1rem 0.4rem 1rem;
+  border: 0.5px solid #757575;
 }
 
 @media screen and (min-width: 400px) {
@@ -490,7 +537,7 @@ label {
     font-size: 16px;
   }
 
-  .icone_cart img {
+  #cart_svg {
     margin-top: 3%;
     height: 40px;
     width: 40px;
@@ -632,7 +679,7 @@ label {
     display: none;
   }
 
-  .icone_cart img {
+  #cart_svg {
     margin-right: 2%;
   }
 
@@ -690,7 +737,7 @@ label {
     align-items: center;
     vertical-align: middle;
     margin-left: 1%;
-    margin-right: 4%;
+    margin-right: 2%;
   }
 
   #array td {
@@ -704,9 +751,14 @@ label {
     border-radius: 10px;
   }
 
+  #price_total {
+    display: block;
+    text-align: right;
+  }
+
   #order {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #F3E9F1;
     box-shadow: 1px 1px 10px 1px #BDBDBD;
     border-radius: 10px;
@@ -715,30 +767,29 @@ label {
     font-weight: bold;
     padding-top: 1%;
     padding-bottom: 1%;
+    border-bottom: ridge #F3E9F1;
+    width: auto;
   }
 
   #article_cart {
-    width: 600px;
-  }
-
-  #name_cart {
-    width: 320px;
+    width: 200px;
+    text-align: right;
   }
 
   #color_cart {
-    width: 180px;
-  }
-
-  #price_cart {
-    width: 130px;
+    width: 170px;
+    text-align: right;
   }
 
   #quantity_cart {
-    width: 100px;
+    width: 50px;
+    text-align: right;
   }
 
-  #price_total_cart {
-    width: 130px;
+  #price_cart {
+    width: 50px;
+    text-align: right;
+    margin-right: 1%;
   }
 }
 @media screen and (min-width: 850px) {
@@ -764,7 +815,7 @@ label {
     margin-right: 12%;
   }
 
-  .icone_cart img {
+  #cart_svg {
     margin-top: 2%;
     margin-bottom: 2%;
   }
@@ -855,40 +906,25 @@ label {
     border-radius: 10px;
   }
 
-  .img_array {
-    width: 160px;
-  }
-
-  .name_array {
-    width: 140px;
-  }
-
-  .color_array {
-    width: 120px;
-  }
-
   #article_cart {
-    width: 340px;
-  }
-
-  #name_cart {
     width: 280px;
+    text-align: right;
   }
 
   #color_cart {
-    width: 150px;
-  }
-
-  #price_cart {
-    width: 110px;
+    width: 200px;
+    text-align: right;
   }
 
   #quantity_cart {
-    width: 80px;
+    width: 50px;
+    text-align: right;
   }
 
-  #price_total_cart {
-    width: 100px;
+  #price_cart {
+    width: 50px;
+    text-align: right;
+    margin-right: 1%;
   }
 
   #confirm h2 {
@@ -916,11 +952,11 @@ label {
     font-size: 22px;
   }
 
-  ul {
-    margin-right: 13%;
+  ul li {
+    margin-right: 2.5%;
   }
 
-  .icone_cart img {
+  #cart_svg {
     margin-top: 1%;
   }
 
@@ -990,27 +1026,24 @@ label {
   }
 
   #article_cart {
-    width: 320px;
-  }
-
-  #name_cart {
-    width: 320px;
+    width: 280px;
+    text-align: right;
   }
 
   #color_cart {
-    width: 180px;
-  }
-
-  #price_cart {
-    width: 130px;
+    width: 240px;
+    text-align: right;
   }
 
   #quantity_cart {
-    width: 100px;
+    width: 50px;
+    text-align: right;
   }
 
-  #price_total_cart {
-    width: 130px;
+  #price_cart {
+    width: 50px;
+    text-align: right;
+    margin-right: 1%;
   }
 
   #confirm h2 {
@@ -1021,6 +1054,28 @@ label {
   #confirm p {
     text-align: center;
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #article_cart {
+    width: 280px;
+    text-align: right;
+  }
+
+  #color_cart {
+    width: 360px;
+    text-align: right;
+  }
+
+  #quantity_cart {
+    width: 130px;
+    text-align: right;
+  }
+
+  #price_cart {
+    width: 120px;
+    text-align: right;
+    margin-right: 1%;
   }
 }
 

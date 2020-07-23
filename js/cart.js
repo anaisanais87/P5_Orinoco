@@ -10,30 +10,30 @@ function createHeader() {                                        //Création de 
     article.textContent = "Produit";
     table.appendChild(article);
 
-    let nameArticle = document.createElement("th");              // Création d'une cellule pour l'élément nom
-    nameArticle.id = "name_cart";
-    nameArticle.textContent = "Nom";
-    table.appendChild(nameArticle);
+    // let nameArticle = document.createElement("th");              // Création d'une cellule pour l'élément nom
+    // nameArticle.id = "name_cart";
+    // nameArticle.textContent = "Nom";
+    // table.appendChild(nameArticle);
 
     let colorArticle = document.createElement("th");            // Création d'une cellule pour l'élément couleur
     colorArticle.id = "color_cart";
     colorArticle.textContent = "Couleur";
     table.appendChild(colorArticle);
 
-    let priceArticle = document.createElement("th");            // Création d'une cellule pour l'élément prix unitaire
-    priceArticle.id = "price_cart";
-    priceArticle.textContent = "Prix unitaire";
-    table.appendChild(priceArticle);
-
     let quantityArticle = document.createElement("th");         // Création d'une cellule pour l'élément quantité
     quantityArticle.id = "quantity_cart";
-    quantityArticle.textContent = "Quantité";
+    quantityArticle.textContent = "Qté";
     table.appendChild(quantityArticle);
 
-    let priceTotalArticle = document.createElement("th");       // Création d'une cellule pour l'élément prix total du produit
-    priceTotalArticle.id = "price_total_cart";
-    priceTotalArticle.textContent = "Prix total";
-    table.appendChild(priceTotalArticle);
+    let priceArticle = document.createElement("th");            // Création d'une cellule pour l'élément prix unitaire
+    priceArticle.id = "price_cart";
+    priceArticle.textContent = "Prix";
+    table.appendChild(priceArticle);
+
+    // let priceTotalArticle = document.createElement("th");       // Création d'une cellule pour l'élément prix total du produit
+    // priceTotalArticle.id = "price_total_cart";
+    // priceTotalArticle.textContent = "Prix total";
+    // table.appendChild(priceTotalArticle);
 }
 
 function createCart() {                                          //Fonction qui va créer le panier
@@ -66,18 +66,18 @@ function createCart() {                                          //Fonction qui 
             colorBear.textContent = eltSelected.color;
             div.appendChild(colorBear);
 
-            let priceBearUnit = document.createElement("td");  // Création d'une cellule pour l'élément prix unitaire
-            priceBearUnit.textContent = eltSelected.price / 100 + " €";
-            div.appendChild(priceBearUnit);
-
             let quantityBear = document.createElement("td");   // Création d'une cellule pour l'élément quantity
             quantityBear.textContent = eltSelected.quantity;
             div.appendChild(quantityBear);
 
-            let priceBear = document.createElement("td");     // Création d'une cellule pour l'élément price*quantity
-            let priceWithQuantity = (eltSelected.quantity * eltSelected.price) / 100; //Création de la variable qui calculera le prix unitaire multiplier par la quantité
-            priceBear.textContent = priceWithQuantity + " €";
-            div.appendChild(priceBear);
+            let priceBearUnit = document.createElement("td");  // Création d'une cellule pour l'élément prix unitaire
+            priceBearUnit.textContent = eltSelected.price / 100 + " €";
+            div.appendChild(priceBearUnit);
+
+            // let priceBear = document.createElement("td");     // Création d'une cellule pour l'élément price*quantity
+            // let priceWithQuantity = (eltSelected.quantity * eltSelected.price) / 100; //Création de la variable qui calculera le prix unitaire multiplier par la quantité
+            // priceBear.textContent = priceWithQuantity + " €";
+            // div.appendChild(priceBear);
 
         });
 
@@ -104,17 +104,17 @@ function calculPriceTotal() {                   //Fonction qui va permettre de c
             let priceWithQuantity = (article.price * article.quantity) / 100;  //Création de la variable qui calculera le prix unitaire multiplier par la quantité
             resultPrice += priceWithQuantity;                                  //L'opérateur += permet d'ajouter la valeur de l'opérande droit à la variable resultPrice
             localStorage.setItem('resultPrice', JSON.stringify(resultPrice));     //???????
-}
-        }
-
-        if (resultPrice !== 0) {                                                    //SI le prix total du panier est différent de 0, les élément ci-dessous seront crées
-            let priceTotal = document.createElement("th");                          // Création d'une cellule th
-            priceTotal.id = "price_total";                                          // Je donne un nom d'id
-            priceTotal.textContent = "Prix total : " + resultPrice + "€"            // Je rajoute le prix total dans le contenu de ma cellule
-            document.getElementById("cart_array").appendChild(priceTotal);          // Insertion du nouvel élément
         }
     }
-    
+
+    if (resultPrice !== 0) {                                                    //SI le prix total du panier est différent de 0, les élément ci-dessous seront crées
+        let priceTotal = document.createElement("th");                          // Création d'une cellule th
+        priceTotal.id = "price_total";                                          // Je donne un nom d'id
+        priceTotal.textContent = "Prix total : " + resultPrice + "€"            // Je rajoute le prix total dans le contenu de ma cellule
+        document.getElementById("cart_array").appendChild(priceTotal);          // Insertion du nouvel élément
+    }
+}
+
 
 calculPriceTotal();                                                //Appel de la fonction qui va calculer et afficher le montant total du panier
 
@@ -136,16 +136,70 @@ removeCart.addEventListener('click', () => {                       //Je crée un
     }
 });
 
-//Formulaire
+// //Formulaire
 
+// // //Bouton pour valider la commande
+let submitOrder = document.createElement("input");                  //Création d'un bouton pour valider la commande
+submitOrder.id = "valid_order";
+submitOrder.type = "submit"
+submitOrder.value = "Valider la commande";
+document.getElementById("form").appendChild(submitOrder);
 
+const regexText = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+const regexEmail = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
+const regexAdress = /(\d{1,}) [a-zA-Z0-9\s]+(\.)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}/;
 
-//Confirmation de commande
-let validOrder = document.createElement("button");                //Création d'un bouton pour valider la commande
-validOrder.id = "valid_order";
-validOrder.textContent = "Valider la commande";
-document.getElementById("form").appendChild(validOrder);
+function validOrder(name, firstname, mail, address, city) {
+    let dataForm = {
+        "Name": name,
+        "firstName": firstname,
+        "Mail": mail,
+        "Address": address,
+        "City": city
+    };
 
-validOrder.addEventListener("click", function () {               //Au clic, Fonction qui renvoi l'utilisateur sur une page lui confirmant sa commande
-    window.location.href = "confirmation.html";
-});
+    fetch('http://localhost:3000/api/teddies/order', dataForm, {
+        method: 'post',
+    });
+
+    setTimeout(function () { window.location.href = "confirmation.html"; }, 1000);
+}
+
+function validate() {
+
+    let mailForm = document.getElementById("mail").value;
+    let nameForm = document.getElementById("name").value;
+    let firstNameForm = document.getElementById("firstName").value;
+    let addressForm = document.getElementById("address").value;
+    let cityForm = document.getElementById("city").value;
+
+    let testSubmit = true;
+
+    if (!regexEmail.test(mailForm)) {
+
+        var messageError = "Format saisi invalide !";
+        document.getElementById("error_mail").textContent = messageError;
+        testSubmit = false;
+
+    }
+
+    if (!regexText.test(nameForm))
+        document.getElementById("error_name").textContent = messageError;
+
+    if (!regexText.test(firstNameForm))
+        document.getElementById("error_firstName").textContent = messageError;
+
+    if (!regexAdress.test(addressForm))
+        document.getElementById("error_address").textContent = messageError;
+
+    if (!regexText.test(cityForm))
+        document.getElementById("error_city").textContent = messageError;
+
+    if (testSubmit === true) {
+
+        validOrder(nameForm, firstNameForm, mailForm, addressForm, cityForm);
+    }
+}
+
+let submitCart = document.getElementById("valid_order");
+submitCart.addEventListener("click", validate); 
