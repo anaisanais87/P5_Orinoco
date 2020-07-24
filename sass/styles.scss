@@ -76,9 +76,11 @@
     }
 
     .banner img{
-        width: 100px;
-        height: 100px;
-        margin-left: 3%;
+        width: 90px;
+        height: 90px;
+        margin-top: 0.5%;
+        margin-left: 4%;
+        margin-right: 2%;
     }
 
     .title{
@@ -95,6 +97,21 @@
         font-family:'belligerent_madnessregular', sans-serif ;
         font-size: 40px;
         margin: auto;
+        color: $back-button;
+
+        // background: linear-gradient(315deg, $back-button 0%, $back-button 40%, $font 75%);
+        // background: -webkit-linear-gradient(315deg, $back-button 0%, $back-button 40%, $font 75%);
+        // background: -moz-linear-gradient(315deg, $back-button 0%, $back-button 40%, $font 75%);
+        // background-clip: text;
+        // -webkit-background-clip: text;
+        // color: transparent;
+        
+        // background: linear-gradient(315deg, #c67412 0%, #a56799 50%, #6e4ccc 75%);
+        // background: -webkit-linear-gradient(315deg, #c67412 0%, #a56799 50%, #6e4ccc 75%);
+        // background: -moz-linear-gradient(315deg, #c67412 0%, #a56799 50%, #6e4ccc 75%);
+        // background-clip: text;
+        // -webkit-background-clip: text;
+        // color: transparent;
     }
 
     .title p{
@@ -116,9 +133,9 @@
     }
 
     ul a:hover{
-        text-decoration: underline $back-button;
+
         color: $back-button;
-        opacity: 0.70;
+        opacity: 0.65;
     }
 
     nav{
@@ -138,7 +155,7 @@
     }
 
     #cart_svg:hover{
-        opacity: 0.70;
+        opacity: 0.65;
     }
 
     /*section*/
@@ -458,18 +475,18 @@
         }
     }
 
-    .adress{
-        margin-bottom: 3%;
-        padding-top: 2%;
-        padding-bottom: 4%;
-        background-color: $back-1;
-        box-shadow: 1px 1px 10px 1px #BDBDBD;
-        border-radius: 10px;
+    // .adress{
+    //     margin-bottom: 3%;
+    //     padding-top: 2%;
+    //     padding-bottom: 4%;
+    //     background-color: $back-1;
+    //     box-shadow: 1px 1px 10px 1px #BDBDBD;
+    //     border-radius: 10px;
 
-        p{
-        padding-left: 6%;
-        }
-    }
+    //     p{
+    //     padding-left: 6%;
+    //     }
+    // }
 
     #valid_order{
         margin: auto;
@@ -527,18 +544,28 @@
     #confirm p{
         text-align: center;
         font-size: 16px;
-        margin-bottom: 10%;
+        margin-bottom: 4%;
+        padding-left: 2%;
+        padding-right: 2%;
     }
 
     #return_order{
         margin: auto;
         display: block;
-        border-radius: 5px;
+        border-radius: 25px;
         color: $back;
         font-size: 16px;
         margin-bottom: 2%;
         padding: 0.25rem 1rem 0.4rem 1rem;
         border: 0.5px solid $border-button;
+    }
+
+    #icone_bear{
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: auto;
+        margin-bottom: 5%;
     }
 
     @media screen and (min-width: 400px){
@@ -823,6 +850,12 @@
             text-align: right;
             margin-right: 1%;
         }
+
+        //Confirmation
+        #icone_bear{
+            width: 80px;
+            height: 80px;
+        }
     }
 
     @media screen and (min-width: 850px){
@@ -966,11 +999,19 @@
         #confirm h2{
             text-align: center;
             font-size: 30px;
+            margin-top: 10%;
         }
     
         #confirm p{
             text-align: center;
             font-size: 20px;
+            padding-left: 3%;
+            padding-right: 3%;
+        }
+
+        #icone_bear{
+            width: 100px;
+            height: 100px;
         }
     }
     
@@ -1079,12 +1120,12 @@
         }
     
         #quantity_cart{
-            width: 50px;
+            width: 70px;
             text-align: right;
         }
         
         #price_cart{
-            width: 50px;
+            width: 70px;
             text-align: right;
             margin-right: 1%;
         }
@@ -1094,15 +1135,25 @@
         #confirm h2{
             text-align: center;
             font-size: 35px;
+            margin-top: 5%;
         }
     
         #confirm p{
             text-align: center;
             font-size: 20px;
+            padding-left: 3.5%;
+            padding-right: 3.5%;
+            margin-bottom: 2%;
+        }
+
+        #icone_bear{
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2%;
         }
     }
 
-    @media screen and (min-width: 1000px){
+    @media screen and (min-width: 1100px){
 
         //Panier
         #article_cart{

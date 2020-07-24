@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem('cart'));             //Données récupérées dans le LocalStorage
+const cart = JSON.parse(localStorage.getItem('cart'));             //Données récupérées dans le LocalStorage
 
 function createHeader() {                                        //Création de la fonction qui décrira chaque partie du tableau
     let table = document.createElement("table");                 // Création du tableau qui recevra les éléments de l'en-tête
@@ -9,11 +9,6 @@ function createHeader() {                                        //Création de 
     article.id = "article_cart";
     article.textContent = "Produit";
     table.appendChild(article);
-
-    // let nameArticle = document.createElement("th");              // Création d'une cellule pour l'élément nom
-    // nameArticle.id = "name_cart";
-    // nameArticle.textContent = "Nom";
-    // table.appendChild(nameArticle);
 
     let colorArticle = document.createElement("th");            // Création d'une cellule pour l'élément couleur
     colorArticle.id = "color_cart";
@@ -29,11 +24,6 @@ function createHeader() {                                        //Création de 
     priceArticle.id = "price_cart";
     priceArticle.textContent = "Prix";
     table.appendChild(priceArticle);
-
-    // let priceTotalArticle = document.createElement("th");       // Création d'une cellule pour l'élément prix total du produit
-    // priceTotalArticle.id = "price_total_cart";
-    // priceTotalArticle.textContent = "Prix total";
-    // table.appendChild(priceTotalArticle);
 }
 
 function createCart() {                                          //Fonction qui va créer le panier
@@ -42,6 +32,8 @@ function createCart() {                                          //Fonction qui 
 
     if (cart !== null) {                                         //SI le panier est différent de null, les élément ci-dessous seront crées
         cart.forEach(function (eltSelected) {                    //La fonction délectionne chaque élément du tableau cart
+
+            var id = eltSelected.id;
 
             let div1 = document.createElement("div");            // Création de la div #cart_array
             div1.id = "cart_array";
@@ -73,12 +65,6 @@ function createCart() {                                          //Fonction qui 
             let priceBearUnit = document.createElement("td");  // Création d'une cellule pour l'élément prix unitaire
             priceBearUnit.textContent = eltSelected.price / 100 + " €";
             div.appendChild(priceBearUnit);
-
-            // let priceBear = document.createElement("td");     // Création d'une cellule pour l'élément price*quantity
-            // let priceWithQuantity = (eltSelected.quantity * eltSelected.price) / 100; //Création de la variable qui calculera le prix unitaire multiplier par la quantité
-            // priceBear.textContent = priceWithQuantity + " €";
-            // div.appendChild(priceBear);
-
         });
 
     } else {                                                 //Dans le cas où le panier est égal à null, le code ci-dessous s'exécutera
@@ -136,6 +122,20 @@ removeCart.addEventListener('click', () => {                       //Je crée un
     }
 });
 
+function returnProductIds() {
+
+    let ids=[];
+
+        for (let products of cart) {
+            ids.push(products.id)
+            
+        }
+
+        console.log(ids)
+        return ids
+        
+}
+
 // //Formulaire
 
 // // //Bouton pour valider la commande
@@ -149,41 +149,57 @@ const regexText = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-Zé
 const regexEmail = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
 const regexAdress = /(\d{1,}) [a-zA-Z0-9\s]+(\.)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}/;
 
-function validOrder(name, firstname, mail, address, city) {
+function validOrder(name, firstname, email, address, city) {
+
+    let productId = returnProductIds();
     let dataForm = {
-        "Name": name,
-        "firstName": firstname,
-        "Mail": mail,
-        "Address": address,
-        "City": city
-    };
+        "contact": {
+                "lastName"  : name,
+                "firstName" : firstname,
+                "email"     : email,
+                "address"   : address,
+                "city"      : city
+        }, 
+        "products" : productId
+    }
 
-    fetch('http://localhost:3000/api/teddies/order', dataForm, {
+    fetch('http://localhost:3000/api/teddies/order', {
         method: 'post',
-    });
+        headers: {
+            'Content-Type': 'application/json',
+          },
+        body: JSON.stringify(dataForm),               //Stringify convertit une valeur JavaScript en chaîne JSON
+    })
 
-    setTimeout(function () { window.location.href = "confirmation.html"; }, 1000);
+    .then(response => response.json())
+    .then(function (data) {
+    
+        let orderId = data.orderId;
+        localStorage.setItem('orderId', JSON.stringify(orderId));   //La valeur de orderId est stockée grâce à setItem et converti en JSON grâce à JSON.stringify
+        document.location.href = "confirmation.html?id=" + orderId
+
+    })
 }
 
 function validate() {
 
-    let mailForm = document.getElementById("mail").value;
-    let nameForm = document.getElementById("name").value;
+    let emailForm      = document.getElementById("email").value;
+    let lastNameForm      = document.getElementById("lastName").value;
     let firstNameForm = document.getElementById("firstName").value;
-    let addressForm = document.getElementById("address").value;
-    let cityForm = document.getElementById("city").value;
+    let addressForm   = document.getElementById("address").value;
+    let cityForm      = document.getElementById("city").value;
 
-    let testSubmit = true;
+    let formSubmit = true;
 
-    if (!regexEmail.test(mailForm)) {
+    if (!regexEmail.test(emailForm)) {
 
         var messageError = "Format saisi invalide !";
         document.getElementById("error_mail").textContent = messageError;
-        testSubmit = false;
+        formSubmit = false;
 
     }
 
-    if (!regexText.test(nameForm))
+    if (!regexText.test(lastNameForm))
         document.getElementById("error_name").textContent = messageError;
 
     if (!regexText.test(firstNameForm))
@@ -195,11 +211,12 @@ function validate() {
     if (!regexText.test(cityForm))
         document.getElementById("error_city").textContent = messageError;
 
-    if (testSubmit === true) {
+    if (formSubmit === true) {
 
-        validOrder(nameForm, firstNameForm, mailForm, addressForm, cityForm);
+        validOrder(lastNameForm, firstNameForm, emailForm, addressForm, cityForm);
     }
 }
 
 let submitCart = document.getElementById("valid_order");
 submitCart.addEventListener("click", validate); 
+

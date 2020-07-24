@@ -9,8 +9,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script async src=""></script>
-
     <title>Panier Oribear.</title>
 
 </head>
@@ -20,7 +18,7 @@
 
         <header>
             <div class="banner">
-                <img src="icones/logo.png" alt="Logo Oribear spécialiste des ours en peluche faits à la main.">
+                <img src="images/bear1.png" alt="Logo Oribear spécialiste des ours en peluche faits à la main.">
 
                 <div class="title">
                     <h1><a href="index.html">Oribear</a></h1>
@@ -33,7 +31,7 @@
                 </div>
 
                 <div class="icone_cart">
-                    <a href="panier.html"><img src="icones/bag.svg" alt="icone panier commande" id="cart_svg"></a>
+                    <a href="panier.html"><img src="icones/logo.png" alt="icone panier commande" id="cart_svg"></a>
                 </div>
 
                 <div class="menu nav">
@@ -69,8 +67,8 @@
                     <form id="my_form" method="post" action="traitement.php">
 
                         <p>
-                            <label for="name">Nom<span class="required">*</span></label> : <br>
-                            <input type="text" name="name" id="name" placeholder=" Votre Nom" required />
+                            <label for="lastName">Nom<span class="required">*</span></label> : <br>
+                            <input type="text" name="name" id="lastName" placeholder=" Votre Nom" required />
                             <span id='error_name'></span>
                         </p>
                         <p>
@@ -79,8 +77,8 @@
                             <span id='error_firstName'></span>
                         </p>
                         <p>
-                            <label for="mail">Mail<span class="required">*</span></label> : <br>
-                            <input type="email" name="mail" id="mail" placeholder=" Votre Mail" required />
+                            <label for="email">Mail<span class="required">*</span></label> : <br>
+                            <input type="email" name="email" id="email" placeholder=" Votre Mail" required />
                             <span id='error_mail'></span>
                         </p>
 
@@ -110,7 +108,8 @@
                         width="50" height="50" id="icone_fb"></a>
                 <a href="https://www.instagram.com/" target="blanck"><img src="icones/insta.png" alt="logo Paypal"
                         width="50" height="50" id="icone_insta"></a>
-                <a href="#" target="blanck"><img src="icones/mail.png" alt="logo Mastercard" width="50" height="50" id="icone_mail"></a>
+                <a href="#" target="blanck"><img src="icones/mail.png" alt="logo Mastercard" width="50" height="50"
+                        id="icone_mail"></a>
             </div>
 
             <h2>Informations</h2>
@@ -133,6 +132,7 @@
         </footer>
         <script src="js/app.js"></script>
         <script src="js/cart.js"></script>
+    </div>
 </body>
 
 </html>

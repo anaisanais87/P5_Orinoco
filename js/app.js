@@ -6,11 +6,11 @@ function fillProducts(data) {                                    //Création de 
 
     for (let i = 0; i < reponse.length; i++) {                   //Je crée la boucle for pour remplir ma page avec tous les éléments que renvoie l'API
 
-        const idTeddies = reponse[i]._id;                        //Déclaration des constantes pour stocker les données des produits
-        const imgTeddies = reponse[i].imageUrl;
-        const nameTeddies = reponse[i].name;
+        const idTeddies    = reponse[i]._id;                        //Déclaration des constantes pour stocker les données des produits
+        const imgTeddies   = reponse[i].imageUrl;
+        const nameTeddies  = reponse[i].name;
         const priceTeddies = reponse[i].price;
-        const infoTeddies = reponse[i].description;
+        const infoTeddies  = reponse[i].description;
         const colorTeddies = reponse[i].colors;
 
         let div = document.createElement("div");                //Création d'une div id="teddies" 

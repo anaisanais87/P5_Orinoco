@@ -58,12 +58,13 @@ function createQuantityList(quantité) {                          //Fonction qui
         let option = document.createElement("option");
         option.textContent = i + 1;
         document.getElementById("quantity").appendChild(option);
+
     }
 }
 
 function fillProductPage(data) {                                //Fonction qui va remplir la page des produits en détail
 
-    const idBear     = data.id;                                 //Déclaration des constantes pour stocker les données des produits
+    const idBear     = data._id;                                 //Déclaration des constantes pour stocker les données des produits
     const imgBear    = data.imageUrl;
     const nameBear   = data.name;
     const priceBear  = data.price;
@@ -105,20 +106,20 @@ function fillProductPage(data) {                                //Fonction qui v
 
     function addToBasket() {
                                                                 //Création de la fonction qui va permettre d'ajouter des produits au panier
-        let sel = document.getElementById("color");             //Variables qui vont permettre la prise en compte du choix des couleurs et de la quantité dans l'ajout au panier 
+        let sel  = document.getElementById("color");             //Variables qui vont permettre la prise en compte du choix des couleurs et de la quantité dans l'ajout au panier 
         let sel2 = document.getElementById("quantity");
         currentColor = sel.options[sel.selectedIndex].innerHTML;
         currentQuantity = sel2.options[sel2.selectedIndex].innerHTML;
 
         let cart = JSON.parse(localStorage.getItem('cart'));    //Les données stockées dans le localStorage n'ont pas de délai d'expiration
-
+ console.log(idBear)
         let newCart = {                                         //Je crée un objet qu'on va stocker ds le localStorage avec les infos donnés par l'utilisateur recuperer juste au dessus
-            'id': idBear,
-            'color': currentColor,
+            'id'      : idBear,
+            'color'   : currentColor,
             'quantity': currentQuantity,
-            'price': priceBear,
-            'img': imgBear,
-            'name': nameBear,
+            'price'   : priceBear,
+            'img'     : imgBear,
+            'name'    : nameBear,
         };
 
         alert("Article ajouté à votre panier !")                //Je crée un message d'alerte pour que l'utilisateur ait la confirmation que son article a bien été ajouté au panier
@@ -130,7 +131,6 @@ function fillProductPage(data) {                                //Fonction qui v
         cart.push(newCart);                                     //Grâce à la méthode push, j'ajoute dans le cart les propriétés de l'objet newCart
 
         localStorage.setItem('cart', JSON.stringify(cart));     //???????
-        // window.location.href = ".html";
         }
 
         addToCart.id = "add_cart";
