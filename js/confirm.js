@@ -1,7 +1,7 @@
 //Confirmation de commande
 
-let resultPrice = JSON.parse(localStorage.getItem('resultPrice'));     //Données récupérées dans le LocalStorage
-let orderId = JSON.parse(localStorage.getItem('orderId'));     //Données récupérées dans le LocalStorage
+let resultPrice = JSON.parse(localStorage.getItem('resultPrice'));     //Données du prix total récupérées dans le LocalStorage
+let orderId = JSON.parse(localStorage.getItem('orderId'));             //Données de l'id de commande récupérées dans le LocalStorage
 
 
 let h2 = document.createElement("h2");                                 //Création de la balise <h2> dans la div confirm afin de remercier l'utilisateur pour sa commande
@@ -12,7 +12,7 @@ let p = document.createElement("p");                                   //Créati
 p.textContent = " Nous avons le plaisir de vous informer que votre commande " + orderId + " d'un montant de " + resultPrice + " € a bien été enregistrée !";
 document.getElementById("confirm").appendChild(p);
 
-let iconeBear = document.createElement("img");        // Création et insertion des images
+let iconeBear = document.createElement("img");                         // Création et insertion des images
 iconeBear.id = 'icone_bear';
 iconeBear.src = "images/bear2.png";
 document.getElementById("confirm").appendChild(iconeBear);

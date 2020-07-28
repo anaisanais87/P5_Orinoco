@@ -1,4 +1,4 @@
-const cart = JSON.parse(localStorage.getItem('cart'));             //Données récupérées dans le LocalStorage
+const cart = JSON.parse(localStorage.getItem('cart'));           //Données récupérées dans le LocalStorage
 
 function createHeader() {                                        //Création de la fonction qui décrira chaque partie du tableau
     let table = document.createElement("table");                 // Création du tableau qui recevra les éléments de l'en-tête
@@ -31,9 +31,7 @@ function createCart() {                                          //Fonction qui 
     createHeader()                                               //Appel de la fonction qui créer l'en-tête avec la description des éléments du tableau
 
     if (cart !== null) {                                         //SI le panier est différent de null, les élément ci-dessous seront crées
-        cart.forEach(function (eltSelected) {                    //La fonction délectionne chaque élément du tableau cart
-
-            var id = eltSelected.id;
+        cart.forEach(function (eltSelected) {                    //La fonction sélectionne chaque élément du tableau cart
 
             let div1 = document.createElement("div");            // Création de la div #cart_array
             div1.id = "cart_array";
@@ -67,13 +65,10 @@ function createCart() {                                          //Fonction qui 
             div.appendChild(priceBearUnit);
         });
 
-    } else {                                                 //Dans le cas où le panier est égal à null, le code ci-dessous s'exécutera
-        let p = document.createElement("p");                 //Création d'un paragraphe qui indiquera à l'utilisateur que le panier est vide
+    } else {                                                     //Dans le cas où le panier est égal à null, le code ci-dessous s'exécutera
+        let p = document.createElement("p");                     //Création d'un paragraphe qui indiquera à l'utilisateur que le panier est vide
         p.textContent = "Votre panier est vide !";
         p.id = "cart_empty"
-        // p.style.textAlign = "center";
-        // p.style.fontSize = "20px";
-        // p.style.fontWeight = "bold";
         document.getElementById("cart").appendChild(p);
         document.getElementById("order").style.display = "none"; //Supression de l'en-tête quand le panier est vide
     }
@@ -89,18 +84,15 @@ function calculPriceTotal() {                   //Fonction qui va permettre de c
         for (let article of cart) {                                            //Je crée la boucle for...of qui permet de parcourir tous les éléments de cart
             let priceWithQuantity = (article.price * article.quantity) / 100;  //Création de la variable qui calculera le prix unitaire multiplier par la quantité
             resultPrice += priceWithQuantity;                                  //L'opérateur += permet d'ajouter la valeur de l'opérande droit à la variable resultPrice
-            localStorage.setItem('resultPrice', JSON.stringify(resultPrice));     //???????
+            localStorage.setItem('resultPrice', JSON.stringify(resultPrice));  //Résultat stocké dans le localStorage
         }
-    }
 
-    if (resultPrice !== 0) {                                                    //SI le prix total du panier est différent de 0, les élément ci-dessous seront crées
         let priceTotal = document.createElement("th");                          // Création d'une cellule th
         priceTotal.id = "price_total";                                          // Je donne un nom d'id
         priceTotal.textContent = "Prix total : " + resultPrice + "€"            // Je rajoute le prix total dans le contenu de ma cellule
         document.getElementById("cart_array").appendChild(priceTotal);          // Insertion du nouvel élément
     }
 }
-
 
 calculPriceTotal();                                                //Appel de la fonction qui va calculer et afficher le montant total du panier
 
@@ -122,37 +114,33 @@ removeCart.addEventListener('click', () => {                       //Je crée un
     }
 });
 
-function returnProductIds() {
+function returnProductIds() {                                      //Fonction qui récupère les id des articles qui sont dans le panier
 
-    let ids=[];
+    let ids=[];                                                    //Déclaration de la variable ids qui sera un tableau
 
-        for (let products of cart) {
+        for (let products of cart) {                               //Boucle for...of qui permet de parcourir tous les éléments de cart
             ids.push(products.id)
-            
         }
-
-        console.log(ids)
-        return ids
-        
+        return ids                                                 //Fonction qui renvoie les id des articles du panier
 }
 
 // //Formulaire
 
 // // //Bouton pour valider la commande
-let submitOrder = document.createElement("input");                  //Création d'un bouton pour valider la commande
+let submitOrder = document.createElement("input");                 //Création d'un bouton pour valider la commande
 submitOrder.id = "valid_order";
 submitOrder.type = "submit"
 submitOrder.value = "Valider la commande";
 document.getElementById("form").appendChild(submitOrder);
 
-const regexText = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-const regexEmail = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
+const regexText   = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; //Création des constantes des regex pour la validation du formulaire
+const regexEmail  = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
 const regexAdress = /(\d{1,}) [a-zA-Z0-9\s]+(\.)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}/;
 
-function validOrder(name, firstname, email, address, city) {
+function validOrder(name, firstname, email, address, city) { //Fonction qui, quand le formulaire sera valide, envoyer l'objet contact et le tableau des produits au serveur
 
-    let productId = returnProductIds();
-    let dataForm = {
+    let productId = returnProductIds();                      //productId sera le retour de la fonction returnProductIds qui renvoie id des articles du panier sous forme de tableau
+    let dataForm = {                                         //Déclaration de la variable dataForm qui aura comme objets contact et products
         "contact": {
                 "lastName"  : name,
                 "firstName" : firstname,
@@ -163,43 +151,43 @@ function validOrder(name, firstname, email, address, city) {
         "products" : productId
     }
 
-    fetch('http://localhost:3000/api/teddies/order', {
+    fetch('http://localhost:3000/api/teddies/order', {      //Méthode fetch pour POST les objets contact et products au serveur
         method: 'post',
         headers: {
             'Content-Type': 'application/json',
           },
-        body: JSON.stringify(dataForm),               //Stringify convertit une valeur JavaScript en chaîne JSON
+        body: JSON.stringify(dataForm),                     //Stringify convertit une valeur JavaScript en chaîne JSON
     })
 
-    .then(response => response.json())
+    .then(response => response.json())                      //Retour de la réponse attendue en JSON
     .then(function (data) {
     
-        let orderId = data.orderId;
-        localStorage.setItem('orderId', JSON.stringify(orderId));   //La valeur de orderId est stockée grâce à setItem et converti en JSON grâce à JSON.stringify
-        document.location.href = "confirmation.html?id=" + orderId
+        let orderId = data.orderId;                         //Je veux récupérer id de commande grâce aux données data retournées 
+        localStorage.setItem('orderId', JSON.stringify(orderId));    //La valeur de orderId est stockée grâce à setItem et converti en JSON grâce à JSON.stringify
+        document.location.href = "confirmation.html?id=" + orderId   //Ouverture de la page de confirmation de commande
 
     })
 }
 
-function validate() {
+function validate() {                                               //Création de la fonction qui permet de valider le formulaire
 
-    let emailForm      = document.getElementById("email").value;
-    let lastNameForm      = document.getElementById("lastName").value;
+    let emailForm     = document.getElementById("email").value;     //Déclaration des variables qui font référence aux champs du formulaire
+    let lastNameForm  = document.getElementById("lastName").value;
     let firstNameForm = document.getElementById("firstName").value;
     let addressForm   = document.getElementById("address").value;
     let cityForm      = document.getElementById("city").value;
 
     let formSubmit = true;
 
-    if (!regexEmail.test(emailForm)) {
+    if (!regexEmail.test(emailForm)) {                                     //SI la valeur de l'adresse email est différente de la regexEmail alors:
 
-        var messageError = "Format saisi invalide !";
-        document.getElementById("error_mail").textContent = messageError;
-        formSubmit = false;
+        var messageError = "Format saisi invalide !";           
+        document.getElementById("error_mail").textContent = messageError;  //Un message d'erreur s'affiche 
+        formSubmit = false;                                                //Et la valeur formSubmit renvoie false
 
     }
 
-    if (!regexText.test(lastNameForm))
+    if (!regexText.test(lastNameForm))                                     //Je répète l'opération avec toutes les valeurs de tous les champs
         document.getElementById("error_name").textContent = messageError;
 
     if (!regexText.test(firstNameForm))
@@ -211,12 +199,12 @@ function validate() {
     if (!regexText.test(cityForm))
         document.getElementById("error_city").textContent = messageError;
 
-    if (formSubmit === true) {
+    if (formSubmit === true) {                                              //Lorsque formSubmit renvoie true, le formulaire est rempli correctement
 
-        validOrder(lastNameForm, firstNameForm, emailForm, addressForm, cityForm);
+        validOrder(lastNameForm, firstNameForm, emailForm, addressForm, cityForm); //La commande peut être validée en envoyant l'objet contact au serveur
     }
 }
 
 let submitCart = document.getElementById("valid_order");
-submitCart.addEventListener("click", validate); 
+submitCart.addEventListener("click", validate);                             //Au clic la fonction validate est appelée
 

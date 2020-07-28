@@ -104,16 +104,16 @@ function fillProductPage(data) {                                //Fonction qui v
     let addToCart = document.createElement("button");           //Je crée un bouton
     addToCart.addEventListener("click", addToBasket);           //Je crée un évènement au clic sur mon bouton
 
-    function addToBasket() {
-                                                                //Création de la fonction qui va permettre d'ajouter des produits au panier
-        let sel  = document.getElementById("color");             //Variables qui vont permettre la prise en compte du choix des couleurs et de la quantité dans l'ajout au panier 
+    function addToBasket() {                                    //Création de la fonction qui va permettre d'ajouter des produits au panier
+
+        let sel  = document.getElementById("color");            //Variables qui vont permettre la prise en compte du choix des couleurs et de la quantité dans l'ajout au panier 
         let sel2 = document.getElementById("quantity");
-        currentColor = sel.options[sel.selectedIndex].innerHTML;
+        currentColor    = sel.options[sel.selectedIndex].innerHTML;
         currentQuantity = sel2.options[sel2.selectedIndex].innerHTML;
 
-        let cart = JSON.parse(localStorage.getItem('cart'));    //Les données stockées dans le localStorage n'ont pas de délai d'expiration
- console.log(idBear)
-        let newCart = {                                         //Je crée un objet qu'on va stocker ds le localStorage avec les infos donnés par l'utilisateur recuperer juste au dessus
+        let cart = JSON.parse(localStorage.getItem('cart'));    //Données récupérées dans le localStorage 
+ 
+        let newCart = {                                         //Je crée un objet qu'on va stocker dans le localStorage avec les infos donnés par l'utilisateur recuperer juste au dessus
             'id'      : idBear,
             'color'   : currentColor,
             'quantity': currentQuantity,
@@ -130,7 +130,7 @@ function fillProductPage(data) {                                //Fonction qui v
         
         cart.push(newCart);                                     //Grâce à la méthode push, j'ajoute dans le cart les propriétés de l'objet newCart
 
-        localStorage.setItem('cart', JSON.stringify(cart));     //???????
+        localStorage.setItem('cart', JSON.stringify(cart));     //Panier stocké dans le localStorage
         }
 
         addToCart.id = "add_cart";
