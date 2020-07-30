@@ -1,5 +1,14 @@
 // Ajout des données sur la page des produits
 
+let btnReturn = document.createElement("button");                 //Création d'un bouton afin de revenir à la page d'accueil
+btnReturn.className = "btn_return";
+btnReturn.textContent = "Retour";
+document.getElementById("teddy_infos").appendChild(btnReturn);
+
+btnReturn.addEventListener("click", function () {                 //Au clic, Fonction qui renvoie à la page d'accueil
+    document.location.href = "index.html";
+})
+
 const paramUrl = new URLSearchParams(window.location.search);      //URLSearchParams définit des méthodes pour travailler avec la requête (les paramètres GET) d’une URL.
 let idTeddy    = paramUrl.get("id");                               // Je stocke dans une variable l'id du produit sélectionné
 

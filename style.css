@@ -242,9 +242,8 @@ button {
   margin-bottom: 0;
   padding: 0.25rem 1rem 0.4rem 1rem;
   border: 0.5px solid #757575;
-}
-button a {
   color: #F3E9F1;
+  cursor: pointer;
 }
 button:hover {
   transform: scale(1.15);
@@ -446,6 +445,7 @@ label {
   margin-top: -2%;
   margin-bottom: 3%;
   padding: 0.25rem 1rem 0.4rem 1rem;
+  cursor: pointer;
 }
 #valid_order:hover {
   transform: scale(1.15);
@@ -883,7 +883,7 @@ input {
     font-size: 18px;
   }
 
-  input[type=button i] {
+  input[type=button] {
     font-size: 24px;
     margin-top: 8%;
     margin-bottom: 3%;
@@ -1034,7 +1034,7 @@ input {
     width: 60px;
   }
 
-  input[type=submit i] {
+  input[type=submit] {
     padding-bottom: 1%;
   }
 

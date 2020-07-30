@@ -98,20 +98,6 @@
         font-size: 40px;
         margin: auto;
         color: $back-button;
-
-        // background: linear-gradient(315deg, $back-button 0%, $back-button 40%, $font 75%);
-        // background: -webkit-linear-gradient(315deg, $back-button 0%, $back-button 40%, $font 75%);
-        // background: -moz-linear-gradient(315deg, $back-button 0%, $back-button 40%, $font 75%);
-        // background-clip: text;
-        // -webkit-background-clip: text;
-        // color: transparent;
-        
-        // background: linear-gradient(315deg, #c67412 0%, #a56799 50%, #6e4ccc 75%);
-        // background: -webkit-linear-gradient(315deg, #c67412 0%, #a56799 50%, #6e4ccc 75%);
-        // background: -moz-linear-gradient(315deg, #c67412 0%, #a56799 50%, #6e4ccc 75%);
-        // background-clip: text;
-        // -webkit-background-clip: text;
-        // color: transparent;
     }
 
     .title p{
@@ -270,6 +256,7 @@
     }
 
     /*Pages produits*/
+
     button{
         margin-left: 6%;
         border-radius: 25px;
@@ -279,10 +266,8 @@
         margin-bottom: 0;
         padding: 0.25rem 1rem 0.4rem 1rem;
         border: 0.5px solid $border-button;
-
-        a{
-            color: $back;
-        }
+        color: $back;
+        cursor: pointer;
 
         &:hover{
             transform: scale(1.15);
@@ -499,6 +484,7 @@
         margin-top: -2%;
         margin-bottom: 3%;
         padding: 0.25rem 1rem 0.4rem 1rem;
+        cursor: pointer;
 
         &:hover{
             transform: scale(1.15);

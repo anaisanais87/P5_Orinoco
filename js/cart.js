@@ -1,3 +1,13 @@
+let btnReturn = document.createElement("button");                 //Création d'un bouton afin de revenir à la page d'accueil
+btnReturn.className = "btn_return";
+btnReturn.textContent = "Retour";
+document.getElementById("return_home").appendChild(btnReturn);
+
+btnReturn.addEventListener("click", function () {                 //Au clic, Fonction qui renvoie à la page d'accueil
+    document.location.href = "index.html";
+})
+
+
 const cart = JSON.parse(localStorage.getItem('cart'));           //Données récupérées dans le LocalStorage
 
 function createHeader() {                                        //Création de la fonction qui décrira chaque partie du tableau
