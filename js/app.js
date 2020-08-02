@@ -10,8 +10,6 @@ function fillProducts(data) {                                    //Création de 
         const imgTeddies   = reponse[i].imageUrl;
         const nameTeddies  = reponse[i].name;
         const priceTeddies = reponse[i].price;
-        const infoTeddies  = reponse[i].description;
-        const colorTeddies = reponse[i].colors;
 
         let div = document.createElement("div");                //Création d'une div "teddies" 
         div.className = "teddies";
