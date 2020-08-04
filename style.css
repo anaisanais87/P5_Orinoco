@@ -883,7 +883,7 @@ input {
     font-size: 18px;
   }
 
-  input[type=button i] {
+  input[type=button] {
     font-size: 24px;
     margin-top: 8%;
     margin-bottom: 3%;
@@ -1034,7 +1034,7 @@ input {
     width: 60px;
   }
 
-  input[type=submit i] {
+  input[type=submit] {
     padding-bottom: 1%;
   }
 
