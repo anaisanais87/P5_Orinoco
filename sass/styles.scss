@@ -378,7 +378,7 @@
         border-radius: 10px;
     }
 
-    #array{
+    .array{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -404,7 +404,7 @@
     .color_array{
         width: 80px;
     }
-    #array img{
+    .array img{
         width: 100px;
         height: 70px;
         margin: 1% 1% 1% 1%;
@@ -775,7 +775,7 @@
         }
     
         // Panier
-        #array{
+        .array{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -785,11 +785,11 @@
             margin-right: 2%;
         }
     
-        #array td{
+        .array td{
             font-size: 16px;
         }
     
-        #array img{
+        .array img{
             width: 160px;
             height: 110px;
             margin: 1% 1% 1% 1%;
@@ -945,7 +945,7 @@
         }
         
         // Panier
-        #array td{
+        .array td{
             font-size: 18px;
         }
     
@@ -953,7 +953,7 @@
             font-size: 18px;
         }
     
-        #array img{
+        .array img{
             width: 230px;
             height: 160px;
             margin: 1% 1% 1% 1%;

@@ -352,7 +352,7 @@ label {
   border-radius: 10px;
 }
 
-#array {
+.array {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -361,7 +361,7 @@ label {
   border-top: ridge #F3E9F1;
   width: auto;
 }
-#array td {
+.array td {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -379,7 +379,7 @@ label {
   width: 80px;
 }
 
-#array img {
+.array img {
   width: 100px;
   height: 70px;
   margin: 1% 1% 1% 1%;
@@ -730,7 +730,7 @@ input {
     margin-top: 5.5%;
   }
 
-  #array {
+  .array {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -740,11 +740,11 @@ input {
     margin-right: 2%;
   }
 
-  #array td {
+  .array td {
     font-size: 16px;
   }
 
-  #array img {
+  .array img {
     width: 160px;
     height: 110px;
     margin: 1% 1% 1% 1%;
@@ -883,7 +883,7 @@ input {
     font-size: 18px;
   }
 
-  input[type=button] {
+  input[type=button i] {
     font-size: 24px;
     margin-top: 8%;
     margin-bottom: 3%;
@@ -896,7 +896,7 @@ input {
     border-radius: 5px;
   }
 
-  #array td {
+  .array td {
     font-size: 18px;
   }
 
@@ -904,7 +904,7 @@ input {
     font-size: 18px;
   }
 
-  #array img {
+  .array img {
     width: 230px;
     height: 160px;
     margin: 1% 1% 1% 1%;
@@ -1034,7 +1034,7 @@ input {
     width: 60px;
   }
 
-  input[type=submit] {
+  input[type=submit i] {
     padding-bottom: 1%;
   }
 

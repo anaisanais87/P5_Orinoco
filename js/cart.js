@@ -48,7 +48,7 @@ function createCart() {                                          //Fonction qui 
             document.getElementById("cart").appendChild(div1);
 
             let div = document.createElement("table");           // Création du tableau qui recevra les éléments du panier
-            div.id = "array";
+            div.className = "array";
             document.getElementById("cart_array").appendChild(div);
 
             let imgBear = document.createElement("img");        // Création et insertion des images
